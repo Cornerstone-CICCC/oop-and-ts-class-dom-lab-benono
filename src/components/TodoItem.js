@@ -26,6 +26,7 @@ export class TodoItem extends Component {
     }
     `
 
+    const buttonArea = document.createElement("div")
     const toggleCompleteBtn = document.createElement("button")
     if (this.props.item.complete) {
       toggleCompleteBtn.innerText = "Mark Incomplete"
@@ -39,12 +40,13 @@ export class TodoItem extends Component {
     deleteBtn.className = "del-btn"
     deleteBtn.innerText = "Delete"
 
-    todoElement.appendChild(toggleCompleteBtn)
-    todoElement.appendChild(deleteBtn)
+    buttonArea.appendChild(toggleCompleteBtn)
+    buttonArea.appendChild(deleteBtn)
 
-    todoElement
+    buttonArea
       .querySelector(".del-btn")
       .addEventListener("click", this.handleDelete)
+    todoElement.appendChild(buttonArea)
 
     return todoElement
   }
